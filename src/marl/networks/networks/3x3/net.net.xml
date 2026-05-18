@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='utf-8'?>
+<net version="1.20" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+  <location netOffset="0,0" convBoundary="-100,-100,500,500" origBoundary="-1e10,-1e10,1e10,1e10" projParameter="!" />
+  <junction id="n_0_0" type="traffic_light" x="0" y="0" />
+  <junction id="n_1_0" type="traffic_light" x="200" y="0" />
+  <junction id="n_2_0" type="traffic_light" x="400" y="0" />
+  <junction id="n_0_1" type="traffic_light" x="0" y="200" />
+  <junction id="n_1_1" type="traffic_light" x="200" y="200" />
+  <junction id="n_2_1" type="traffic_light" x="400" y="200" />
+  <junction id="n_0_2" type="traffic_light" x="0" y="400" />
+  <junction id="n_1_2" type="traffic_light" x="200" y="400" />
+  <junction id="n_2_2" type="traffic_light" x="400" y="400" />
+  <junction id="ext_0_0_W" type="dead_end" x="-100" y="0" />
+  <junction id="ext_0_0_S" type="dead_end" x="0" y="-100" />
+  <junction id="ext_1_0_S" type="dead_end" x="200" y="-100" />
+  <junction id="ext_2_0_E" type="dead_end" x="500" y="0" />
+  <junction id="ext_2_0_S" type="dead_end" x="400" y="-100" />
+  <junction id="ext_0_1_W" type="dead_end" x="-100" y="200" />
+  <junction id="ext_2_1_E" type="dead_end" x="500" y="200" />
+  <junction id="ext_0_2_W" type="dead_end" x="-100" y="400" />
+  <junction id="ext_0_2_N" type="dead_end" x="0" y="500" />
+  <junction id="ext_1_2_N" type="dead_end" x="200" y="500" />
+  <junction id="ext_2_2_E" type="dead_end" x="500" y="400" />
+  <junction id="ext_2_2_N" type="dead_end" x="400" y="500" />
+  <edge id="e_0_0_E" from="n_0_0" to="n_1_0" numLanes="2" speed="13.89">
+    <lane id="e_0_0_E_0" index="0" speed="13.89" length="200.0" shape="0,0 200,0" />
+    <lane id="e_0_0_E_1" index="1" speed="13.89" length="200.0" shape="0,0 200,0" />
+  </edge>
+  <edge id="e_0_0_W" from="n_1_0" to="n_0_0" numLanes="2" speed="13.89">
+    <lane id="e_0_0_W_0" index="0" speed="13.89" length="200.0" shape="200,0 0,0" />
+    <lane id="e_0_0_W_1" index="1" speed="13.89" length="200.0" shape="200,0 0,0" />
+  </edge>
+  <edge id="e_0_0_N" from="n_0_0" to="n_0_1" numLanes="2" speed="13.89">
+    <lane id="e_0_0_N_0" index="0" speed="13.89" length="200.0" shape="0,0 0,200" />
+    <lane id="e_0_0_N_1" index="1" speed="13.89" length="200.0" shape="0,0 0,200" />
+  </edge>
+  <edge id="e_0_0_S" from="n_0_1" to="n_0_0" numLanes="2" speed="13.89">
+    <lane id="e_0_0_S_0" index="0" speed="13.89" length="200.0" shape="0,200 0,0" />
+    <lane id="e_0_0_S_1" index="1" speed="13.89" length="200.0" shape="0,200 0,0" />
+  </edge>
+  <edge id="e_1_0_E" from="n_1_0" to="n_2_0" numLanes="2" speed="13.89">
+    <lane id="e_1_0_E_0" index="0" speed="13.89" length="200.0" shape="200,0 400,0" />
+    <lane id="e_1_0_E_1" index="1" speed="13.89" length="200.0" shape="200,0 400,0" />
+  </edge>
+  <edge id="e_1_0_W" from="n_2_0" to="n_1_0" numLanes="2" speed="13.89">
+    <lane id="e_1_0_W_0" index="0" speed="13.89" length="200.0" shape="400,0 200,0" />
+    <lane id="e_1_0_W_1" index="1" speed="13.89" length="200.0" shape="400,0 200,0" />
+  </edge>
+  <edge id="e_1_0_N" from="n_1_0" to="n_1_1" numLanes="2" speed="13.89">
+    <lane id="e_1_0_N_0" index="0" speed="13.89" length="200.0" shape="200,0 200,200" />
+    <lane id="e_1_0_N_1" index="1" speed="13.89" length="200.0" shape="200,0 200,200" />
+  </edge>
+  <edge id="e_1_0_S" from="n_1_1" to="n_1_0" numLanes="2" speed="13.89">
+    <lane id="e_1_0_S_0" index="0" speed="13.89" length="200.0" shape="200,200 200,0" />
+    <lane id="e_1_0_S_1" index="1" speed="13.89" length="200.0" shape="200,200 200,0" />
+  </edge>
+  <edge id="e_2_0_N" from="n_2_0" to="n_2_1" numLanes="2" speed="13.89">
+    <lane id="e_2_0_N_0" index="0" speed="13.89" length="200.0" shape="400,0 400,200" />
+    <lane id="e_2_0_N_1" index="1" speed="13.89" length="200.0" shape="400,0 400,200" />
+  </edge>
+  <edge id="e_2_0_S" from="n_2_1" to="n_2_0" numLanes="2" speed="13.89">
+    <lane id="e_2_0_S_0" index="0" speed="13.89" length="200.0" shape="400,200 400,0" />
+    <lane id="e_2_0_S_1" index="1" speed="13.89" length="200.0" shape="400,200 400,0" />
+  </edge>
+  <edge id="e_0_1_E" from="n_0_1" to="n_1_1" numLanes="2" speed="13.89">
+    <lane id="e_0_1_E_0" index="0" speed="13.89" length="200.0" shape="0,200 200,200" />
+    <lane id="e_0_1_E_1" index="1" speed="13.89" length="200.0" shape="0,200 200,200" />
+  </edge>
+  <edge id="e_0_1_W" from="n_1_1" to="n_0_1" numLanes="2" speed="13.89">
+    <lane id="e_0_1_W_0" index="0" speed="13.89" length="200.0" shape="200,200 0,200" />
+    <lane id="e_0_1_W_1" index="1" speed="13.89" length="200.0" shape="200,200 0,200" />
+  </edge>
+  <edge id="e_0_1_N" from="n_0_1" to="n_0_2" numLanes="2" speed="13.89">
+    <lane id="e_0_1_N_0" index="0" speed="13.89" length="200.0" shape="0,200 0,400" />
+    <lane id="e_0_1_N_1" index="1" speed="13.89" length="200.0" shape="0,200 0,400" />
+  </edge>
+  <edge id="e_0_1_S" from="n_0_2" to="n_0_1" numLanes="2" speed="13.89">
+    <lane id="e_0_1_S_0" index="0" speed="13.89" length="200.0" shape="0,400 0,200" />
+    <lane id="e_0_1_S_1" index="1" speed="13.89" length="200.0" shape="0,400 0,200" />
+  </edge>
+  <edge id="e_1_1_E" from="n_1_1" to="n_2_1" numLanes="2" speed="13.89">
+    <lane id="e_1_1_E_0" index="0" speed="13.89" length="200.0" shape="200,200 400,200" />
+    <lane id="e_1_1_E_1" index="1" speed="13.89" length="200.0" shape="200,200 400,200" />
+  </edge>
+  <edge id="e_1_1_W" from="n_2_1" to="n_1_1" numLanes="2" speed="13.89">
+    <lane id="e_1_1_W_0" index="0" speed="13.89" length="200.0" shape="400,200 200,200" />
+    <lane id="e_1_1_W_1" index="1" speed="13.89" length="200.0" shape="400,200 200,200" />
+  </edge>
+  <edge id="e_1_1_N" from="n_1_1" to="n_1_2" numLanes="2" speed="13.89">
+    <lane id="e_1_1_N_0" index="0" speed="13.89" length="200.0" shape="200,200 200,400" />
+    <lane id="e_1_1_N_1" index="1" speed="13.89" length="200.0" shape="200,200 200,400" />
+  </edge>
+  <edge id="e_1_1_S" from="n_1_2" to="n_1_1" numLanes="2" speed="13.89">
+    <lane id="e_1_1_S_0" index="0" speed="13.89" length="200.0" shape="200,400 200,200" />
+    <lane id="e_1_1_S_1" index="1" speed="13.89" length="200.0" shape="200,400 200,200" />
+  </edge>
+  <edge id="e_2_1_N" from="n_2_1" to="n_2_2" numLanes="2" speed="13.89">
+    <lane id="e_2_1_N_0" index="0" speed="13.89" length="200.0" shape="400,200 400,400" />
+    <lane id="e_2_1_N_1" index="1" speed="13.89" length="200.0" shape="400,200 400,400" />
+  </edge>
+  <edge id="e_2_1_S" from="n_2_2" to="n_2_1" numLanes="2" speed="13.89">
+    <lane id="e_2_1_S_0" index="0" speed="13.89" length="200.0" shape="400,400 400,200" />
+    <lane id="e_2_1_S_1" index="1" speed="13.89" length="200.0" shape="400,400 400,200" />
+  </edge>
+  <edge id="e_0_2_E" from="n_0_2" to="n_1_2" numLanes="2" speed="13.89">
+    <lane id="e_0_2_E_0" index="0" speed="13.89" length="200.0" shape="0,400 200,400" />
+    <lane id="e_0_2_E_1" index="1" speed="13.89" length="200.0" shape="0,400 200,400" />
+  </edge>
+  <edge id="e_0_2_W" from="n_1_2" to="n_0_2" numLanes="2" speed="13.89">
+    <lane id="e_0_2_W_0" index="0" speed="13.89" length="200.0" shape="200,400 0,400" />
+    <lane id="e_0_2_W_1" index="1" speed="13.89" length="200.0" shape="200,400 0,400" />
+  </edge>
+  <edge id="e_1_2_E" from="n_1_2" to="n_2_2" numLanes="2" speed="13.89">
+    <lane id="e_1_2_E_0" index="0" speed="13.89" length="200.0" shape="200,400 400,400" />
+    <lane id="e_1_2_E_1" index="1" speed="13.89" length="200.0" shape="200,400 400,400" />
+  </edge>
+  <edge id="e_1_2_W" from="n_2_2" to="n_1_2" numLanes="2" speed="13.89">
+    <lane id="e_1_2_W_0" index="0" speed="13.89" length="200.0" shape="400,400 200,400" />
+    <lane id="e_1_2_W_1" index="1" speed="13.89" length="200.0" shape="400,400 200,400" />
+  </edge>
+  <edge id="in_ext_0_0_W" from="ext_0_0_W" to="n_0_0" numLanes="2" speed="13.89">
+    <lane id="in_ext_0_0_W_0" index="0" speed="13.89" length="100.0" shape="-100,0 0,0" />
+    <lane id="in_ext_0_0_W_1" index="1" speed="13.89" length="100.0" shape="-100,0 0,0" />
+  </edge>
+  <edge id="out_ext_0_0_W" from="n_0_0" to="ext_0_0_W" numLanes="2" speed="13.89">
+    <lane id="out_ext_0_0_W_0" index="0" speed="13.89" length="100.0" shape="0,0 -100,0" />
+    <lane id="out_ext_0_0_W_1" index="1" speed="13.89" length="100.0" shape="0,0 -100,0" />
+  </edge>
+  <edge id="in_ext_0_0_S" from="ext_0_0_S" to="n_0_0" numLanes="2" speed="13.89">
+    <lane id="in_ext_0_0_S_0" index="0" speed="13.89" length="100.0" shape="0,-100 0,0" />
+    <lane id="in_ext_0_0_S_1" index="1" speed="13.89" length="100.0" shape="0,-100 0,0" />
+  </edge>
+  <edge id="out_ext_0_0_S" from="n_0_0" to="ext_0_0_S" numLanes="2" speed="13.89">
+    <lane id="out_ext_0_0_S_0" index="0" speed="13.89" length="100.0" shape="0,0 0,-100" />
+    <lane id="out_ext_0_0_S_1" index="1" speed="13.89" length="100.0" shape="0,0 0,-100" />
+  </edge>
+  <edge id="in_ext_1_0_S" from="ext_1_0_S" to="n_1_0" numLanes="2" speed="13.89">
+    <lane id="in_ext_1_0_S_0" index="0" speed="13.89" length="100.0" shape="200,-100 200,0" />
+    <lane id="in_ext_1_0_S_1" index="1" speed="13.89" length="100.0" shape="200,-100 200,0" />
+  </edge>
+  <edge id="out_ext_1_0_S" from="n_1_0" to="ext_1_0_S" numLanes="2" speed="13.89">
+    <lane id="out_ext_1_0_S_0" index="0" speed="13.89" length="100.0" shape="200,0 200,-100" />
+    <lane id="out_ext_1_0_S_1" index="1" speed="13.89" length="100.0" shape="200,0 200,-100" />
+  </edge>
+  <edge id="in_ext_2_0_E" from="ext_2_0_E" to="n_2_0" numLanes="2" speed="13.89">
+    <lane id="in_ext_2_0_E_0" index="0" speed="13.89" length="100.0" shape="500,0 400,0" />
+    <lane id="in_ext_2_0_E_1" index="1" speed="13.89" length="100.0" shape="500,0 400,0" />
+  </edge>
+  <edge id="out_ext_2_0_E" from="n_2_0" to="ext_2_0_E" numLanes="2" speed="13.89">
+    <lane id="out_ext_2_0_E_0" index="0" speed="13.89" length="100.0" shape="400,0 500,0" />
+    <lane id="out_ext_2_0_E_1" index="1" speed="13.89" length="100.0" shape="400,0 500,0" />
+  </edge>
+  <edge id="in_ext_2_0_S" from="ext_2_0_S" to="n_2_0" numLanes="2" speed="13.89">
+    <lane id="in_ext_2_0_S_0" index="0" speed="13.89" length="100.0" shape="400,-100 400,0" />
+    <lane id="in_ext_2_0_S_1" index="1" speed="13.89" length="100.0" shape="400,-100 400,0" />
+  </edge>
+  <edge id="out_ext_2_0_S" from="n_2_0" to="ext_2_0_S" numLanes="2" speed="13.89">
+    <lane id="out_ext_2_0_S_0" index="0" speed="13.89" length="100.0" shape="400,0 400,-100" />
+    <lane id="out_ext_2_0_S_1" index="1" speed="13.89" length="100.0" shape="400,0 400,-100" />
+  </edge>
+  <edge id="in_ext_0_1_W" from="ext_0_1_W" to="n_0_1" numLanes="2" speed="13.89">
+    <lane id="in_ext_0_1_W_0" index="0" speed="13.89" length="100.0" shape="-100,200 0,200" />
+    <lane id="in_ext_0_1_W_1" index="1" speed="13.89" length="100.0" shape="-100,200 0,200" />
+  </edge>
+  <edge id="out_ext_0_1_W" from="n_0_1" to="ext_0_1_W" numLanes="2" speed="13.89">
+    <lane id="out_ext_0_1_W_0" index="0" speed="13.89" length="100.0" shape="0,200 -100,200" />
+    <lane id="out_ext_0_1_W_1" index="1" speed="13.89" length="100.0" shape="0,200 -100,200" />
+  </edge>
+  <edge id="in_ext_2_1_E" from="ext_2_1_E" to="n_2_1" numLanes="2" speed="13.89">
+    <lane id="in_ext_2_1_E_0" index="0" speed="13.89" length="100.0" shape="500,200 400,200" />
+    <lane id="in_ext_2_1_E_1" index="1" speed="13.89" length="100.0" shape="500,200 400,200" />
+  </edge>
+  <edge id="out_ext_2_1_E" from="n_2_1" to="ext_2_1_E" numLanes="2" speed="13.89">
+    <lane id="out_ext_2_1_E_0" index="0" speed="13.89" length="100.0" shape="400,200 500,200" />
+    <lane id="out_ext_2_1_E_1" index="1" speed="13.89" length="100.0" shape="400,200 500,200" />
+  </edge>
+  <edge id="in_ext_0_2_W" from="ext_0_2_W" to="n_0_2" numLanes="2" speed="13.89">
+    <lane id="in_ext_0_2_W_0" index="0" speed="13.89" length="100.0" shape="-100,400 0,400" />
+    <lane id="in_ext_0_2_W_1" index="1" speed="13.89" length="100.0" shape="-100,400 0,400" />
+  </edge>
+  <edge id="out_ext_0_2_W" from="n_0_2" to="ext_0_2_W" numLanes="2" speed="13.89">
+    <lane id="out_ext_0_2_W_0" index="0" speed="13.89" length="100.0" shape="0,400 -100,400" />
+    <lane id="out_ext_0_2_W_1" index="1" speed="13.89" length="100.0" shape="0,400 -100,400" />
+  </edge>
+  <edge id="in_ext_0_2_N" from="ext_0_2_N" to="n_0_2" numLanes="2" speed="13.89">
+    <lane id="in_ext_0_2_N_0" index="0" speed="13.89" length="100.0" shape="0,500 0,400" />
+    <lane id="in_ext_0_2_N_1" index="1" speed="13.89" length="100.0" shape="0,500 0,400" />
+  </edge>
+  <edge id="out_ext_0_2_N" from="n_0_2" to="ext_0_2_N" numLanes="2" speed="13.89">
+    <lane id="out_ext_0_2_N_0" index="0" speed="13.89" length="100.0" shape="0,400 0,500" />
+    <lane id="out_ext_0_2_N_1" index="1" speed="13.89" length="100.0" shape="0,400 0,500" />
+  </edge>
+  <edge id="in_ext_1_2_N" from="ext_1_2_N" to="n_1_2" numLanes="2" speed="13.89">
+    <lane id="in_ext_1_2_N_0" index="0" speed="13.89" length="100.0" shape="200,500 200,400" />
+    <lane id="in_ext_1_2_N_1" index="1" speed="13.89" length="100.0" shape="200,500 200,400" />
+  </edge>
+  <edge id="out_ext_1_2_N" from="n_1_2" to="ext_1_2_N" numLanes="2" speed="13.89">
+    <lane id="out_ext_1_2_N_0" index="0" speed="13.89" length="100.0" shape="200,400 200,500" />
+    <lane id="out_ext_1_2_N_1" index="1" speed="13.89" length="100.0" shape="200,400 200,500" />
+  </edge>
+  <edge id="in_ext_2_2_E" from="ext_2_2_E" to="n_2_2" numLanes="2" speed="13.89">
+    <lane id="in_ext_2_2_E_0" index="0" speed="13.89" length="100.0" shape="500,400 400,400" />
+    <lane id="in_ext_2_2_E_1" index="1" speed="13.89" length="100.0" shape="500,400 400,400" />
+  </edge>
+  <edge id="out_ext_2_2_E" from="n_2_2" to="ext_2_2_E" numLanes="2" speed="13.89">
+    <lane id="out_ext_2_2_E_0" index="0" speed="13.89" length="100.0" shape="400,400 500,400" />
+    <lane id="out_ext_2_2_E_1" index="1" speed="13.89" length="100.0" shape="400,400 500,400" />
+  </edge>
+  <edge id="in_ext_2_2_N" from="ext_2_2_N" to="n_2_2" numLanes="2" speed="13.89">
+    <lane id="in_ext_2_2_N_0" index="0" speed="13.89" length="100.0" shape="400,500 400,400" />
+    <lane id="in_ext_2_2_N_1" index="1" speed="13.89" length="100.0" shape="400,500 400,400" />
+  </edge>
+  <edge id="out_ext_2_2_N" from="n_2_2" to="ext_2_2_N" numLanes="2" speed="13.89">
+    <lane id="out_ext_2_2_N_0" index="0" speed="13.89" length="100.0" shape="400,400 400,500" />
+    <lane id="out_ext_2_2_N_1" index="1" speed="13.89" length="100.0" shape="400,400 400,500" />
+  </edge>
+  <tlLogic id="n_0_0" type="static" programID="0" offset="0">
+    <phase duration="30" state="GGrrGGrr" />
+    <phase duration="5" state="yyrryyrr" />
+    <phase duration="30" state="rrGGrrGG" />
+    <phase duration="5" state="rryyrryy" />
+  </tlLogic>
+  <tlLogic id="n_1_0" type="static" programID="0" offset="0">
+    <phase duration="30" state="GGrrGGrr" />
+    <phase duration="5" state="yyrryyrr" />
+    <phase duration="30" state="rrGGrrGG" />
+    <phase duration="5" state="rryyrryy" />
+  </tlLogic>
+  <tlLogic id="n_2_0" type="static" programID="0" offset="0">
+    <phase duration="30" state="GGrrGGrr" />
+    <phase duration="5" state="yyrryyrr" />
+    <phase duration="30" state="rrGGrrGG" />
+    <phase duration="5" state="rryyrryy" />
+  </tlLogic>
+  <tlLogic id="n_0_1" type="static" programID="0" offset="0">
+    <phase duration="30" state="GGrrGGrr" />
+    <phase duration="5" state="yyrryyrr" />
+    <phase duration="30" state="rrGGrrGG" />
+    <phase duration="5" state="rryyrryy" />
+  </tlLogic>
+  <tlLogic id="n_1_1" type="static" programID="0" offset="0">
+    <phase duration="30" state="GGrrGGrr" />
+    <phase duration="5" state="yyrryyrr" />
+    <phase duration="30" state="rrGGrrGG" />
+    <phase duration="5" state="rryyrryy" />
+  </tlLogic>
+  <tlLogic id="n_2_1" type="static" programID="0" offset="0">
+    <phase duration="30" state="GGrrGGrr" />
+    <phase duration="5" state="yyrryyrr" />
+    <phase duration="30" state="rrGGrrGG" />
+    <phase duration="5" state="rryyrryy" />
+  </tlLogic>
+  <tlLogic id="n_0_2" type="static" programID="0" offset="0">
+    <phase duration="30" state="GGrrGGrr" />
+    <phase duration="5" state="yyrryyrr" />
+    <phase duration="30" state="rrGGrrGG" />
+    <phase duration="5" state="rryyrryy" />
+  </tlLogic>
+  <tlLogic id="n_1_2" type="static" programID="0" offset="0">
+    <phase duration="30" state="GGrrGGrr" />
+    <phase duration="5" state="yyrryyrr" />
+    <phase duration="30" state="rrGGrrGG" />
+    <phase duration="5" state="rryyrryy" />
+  </tlLogic>
+  <tlLogic id="n_2_2" type="static" programID="0" offset="0">
+    <phase duration="30" state="GGrrGGrr" />
+    <phase duration="5" state="yyrryyrr" />
+    <phase duration="30" state="rrGGrrGG" />
+    <phase duration="5" state="rryyrryy" />
+  </tlLogic>
+</net>

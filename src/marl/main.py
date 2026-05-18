@@ -1,78 +1,65 @@
 """
-main.py
--------
+main.py  –  colócalo en src/marl/
 Punto de entrada del proyecto MARL para control de semáforos.
 
-Flujo:
-    1. Crea el entorno SUMO multi-agente
-    2. Instancia IQL (un DQN por semáforo)
-    3. Entrena durante N episodios
-    4. Guarda checkpoints y métricas
-
 Primer uso:
-    # 1. Genera las redes (solo la primera vez)
+    cd src/marl
     python generate_networks.py --sizes 2
-
-    # 2. Entrena IQL en la cuadrícula 2×2 con tráfico moderado
     python main.py
 """
 
 import os
 import sys
 
-# ─── Asegura que SUMO esté en el PATH ────────────────────────────────────────
-SUMO_HOME = os.environ.get("SUMO_HOME")
-if SUMO_HOME is None:
-    # Intento automático en rutas comunes
-    for path in ["/usr/share/sumo", "/opt/homebrew/share/sumo"]:
-        if os.path.isdir(path):
-            SUMO_HOME = path
-            os.environ["SUMO_HOME"] = path
-            break
-
-if SUMO_HOME:
+# ─── Auto-detectar SUMO (instalado con pip install eclipse-sumo) ─────────────
+try:
+    import sumo as _sumo_pkg
+    SUMO_HOME = _sumo_pkg.SUMO_HOME
+    os.environ["SUMO_HOME"] = SUMO_HOME
     sys.path.append(os.path.join(SUMO_HOME, "tools"))
-else:
-    print("[ERROR] SUMO_HOME no está definido.")
-    print("  Instala SUMO y ejecuta: export SUMO_HOME=/ruta/a/sumo")
+except ImportError:
+    print("[ERROR] eclipse-sumo no encontrado. Ejecuta: pip install eclipse-sumo")
     sys.exit(1)
 
 # ─── Imports del proyecto ────────────────────────────────────────────────────
-from env.sumo_env        import SumoMultiAgentEnv
-from algorithms.iql      import IQL
-from utils.logger        import MetricsLogger
+# Ajustados a la estructura real: archivos en src/marl/ directamente
+from env.sumo_env import SumoMultiAgentEnv
+from iql          import IQL
+from logger       import MetricsLogger
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Configuración
 # ─────────────────────────────────────────────────────────────────────────────
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 CONFIG = {
     # Entorno
-    "net_file"   : "networks/2x2/net.net.xml",
-    "route_file" : "networks/2x2/routes_medium.rou.xml",
-    "num_seconds": 3600,          # 1 hora simulada por episodio
-    "delta_time" : 5,             # segundos por paso del entorno
+    "net_file"   : os.path.join(BASE_DIR, "networks", "2x2", "net.net.xml"),
+    "route_file" : os.path.join(BASE_DIR, "networks", "2x2", "routes_medium.rou.xml"),
+    "num_seconds": 3600,
+    "delta_time" : 5,
     "min_green"  : 5,
     "max_green"  : 50,
-    "use_gui"    : False,         # pon True para ver la simulación
+    "use_gui"    : False,   # pon True para ver la simulación en sumo-gui
 
     # Entrenamiento
     "episodes"   : 100,
-    "eval_every" : 10,            # evaluar (greedy) cada N episodios
+    "eval_every" : 10,      # cada 10 episodios, uno sin exploración (greedy)
     "save_every" : 20,
 
     # IQL
-    "lr"             : 1e-3,
-    "gamma"          : 0.99,
-    "epsilon_start"  : 1.0,
-    "epsilon_end"    : 0.05,
-    "epsilon_decay"  : 0.9995,
-    "buffer_size"    : 50_000,
-    "batch_size"     : 64,
-    "target_update"  : 200,
+    "lr"            : 1e-3,
+    "gamma"         : 0.99,
+    "epsilon_start" : 1.0,
+    "epsilon_end"   : 0.05,
+    "epsilon_decay" : 0.9995,
+    "buffer_size"   : 50_000,
+    "batch_size"    : 64,
+    "target_update" : 200,
 
     # Logging
-    "log_dir"  : "results",
+    "log_dir"  : os.path.join(BASE_DIR, "results"),
     "run_name" : "iql_2x2_medium",
 }
 
@@ -93,21 +80,18 @@ def train():
         seed        = 42,
     )
 
-    # Primera reset para conocer las dimensiones de los espacios
     obs = env.reset()
 
     iql_kwargs = {k: CONFIG[k] for k in (
         "lr", "gamma", "epsilon_start", "epsilon_end",
         "epsilon_decay", "buffer_size", "batch_size", "target_update"
     )}
-    iql = IQL(env.obs_dims, env.action_dims, **iql_kwargs)
-
+    iql    = IQL(env.obs_dims, env.action_dims, **iql_kwargs)
     logger = MetricsLogger(CONFIG["log_dir"], CONFIG["run_name"])
 
     print(f"\n{'='*55}")
-    print(f"  Agentes: {env.agents}")
-    print(f"  Obs dims: { {k: v for k, v in env.obs_dims.items()} }")
-    print(f"  Action dims: { {k: v for k, v in env.action_dims.items()} }")
+    print(f"  Agentes   : {env.agents}")
+    print(f"  SUMO_HOME : {SUMO_HOME}")
     print(f"{'='*55}\n")
 
     for episode in range(1, CONFIG["episodes"] + 1):
@@ -116,7 +100,7 @@ def train():
         done   = False
 
         while not done:
-            actions          = iql.act(obs, greedy=greedy)
+            actions                       = iql.act(obs, greedy=greedy)
             next_obs, rewards, done, info = env.step(actions)
 
             if not greedy:
@@ -143,8 +127,6 @@ def train():
     logger.close()
     print("\n✓ Entrenamiento completado.")
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     train()
